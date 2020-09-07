@@ -1,5 +1,6 @@
 package com.thoughtworks.capability.gtb.entrancequiz.trainee.api;
 
+import com.thoughtworks.capability.gtb.entrancequiz.trainee.domain.Group;
 import com.thoughtworks.capability.gtb.entrancequiz.trainee.domain.Trainee;
 import com.thoughtworks.capability.gtb.entrancequiz.trainee.service.TraineeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +28,18 @@ public class TraineeController {
   @PostMapping(path = "/add/trainee/{name}")
   public ResponseEntity<List<Trainee>> addTrainee(@PathVariable String name) {
     return ResponseEntity.ok(traineeService.addTrainee(name));
+  }
+
+  @CrossOrigin
+  @GetMapping(path = "/group/trainee")
+  public ResponseEntity<List<Group>> groupTrainee() {
+    return ResponseEntity.ok(traineeService.groupTrainee());
+  }
+
+  @CrossOrigin
+  @PostMapping(path = "/edit/group/{oldName}/{newName}")
+  public ResponseEntity<List<Group>> editGroupName(@PathVariable String oldName, @PathVariable String newName) {
+    return ResponseEntity.ok(traineeService.editGroupName(oldName, newName));
   }
 
 }
