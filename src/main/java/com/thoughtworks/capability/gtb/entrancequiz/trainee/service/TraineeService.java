@@ -30,4 +30,8 @@ public class TraineeService {
     return TraineeConstants.TRAINEE_LIST;
   }
 
+  public List<Trainee> addTrainee(String name) {
+    TraineeConstants.TRAINEE_LIST.add(new Trainee(TraineeConstants.TRAINEE_LIST.size() + 1, name));
+    return TraineeConstants.TRAINEE_LIST;
+  }
 }

@@ -5,10 +5,7 @@ import com.thoughtworks.capability.gtb.entrancequiz.trainee.service.TraineeServi
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -21,9 +18,15 @@ public class TraineeController {
 
 
   @CrossOrigin
-  @GetMapping(path = "trainees")
+  @GetMapping(path = "/trainees")
   public ResponseEntity<List<Trainee>> findAllTrainees() {
     return ResponseEntity.ok(traineeService.findALlTrainees());
+  }
+
+  @CrossOrigin
+  @PostMapping(path = "/add/trainee/{name}")
+  public ResponseEntity<List<Trainee>> addTrainee(@PathVariable String name) {
+    return ResponseEntity.ok(traineeService.addTrainee(name));
   }
 
 }
