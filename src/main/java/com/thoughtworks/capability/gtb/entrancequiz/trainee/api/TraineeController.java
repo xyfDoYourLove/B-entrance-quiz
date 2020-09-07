@@ -42,4 +42,10 @@ public class TraineeController {
     return ResponseEntity.ok(traineeService.editGroupName(oldName, newName));
   }
 
+  @CrossOrigin
+  @GetMapping(path = "/groups")
+  public ResponseEntity<List<Group>> findAllGroups() {
+    return ResponseEntity.ok(traineeService.findALlGroups());
+  }
+
 }

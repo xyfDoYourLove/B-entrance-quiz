@@ -92,4 +92,12 @@ public class TraineeService {
     }
     return TraineeConstants.GROUP_LIST;
   }
+
+  public List<Group> findALlGroups() {
+    if (TraineeConstants.GROUP_LIST.isEmpty()) {
+      return initGroups();
+    }else {
+      return TraineeConstants.GROUP_LIST;
+    }
+  }
 }
